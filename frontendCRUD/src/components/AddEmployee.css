@@ -1,0 +1,24 @@
+.formfield {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#star {
+    color: red;
+    font-size: 10px;
+}
+
+#fnameErr,
+#lnameErr,
+#ageErr,
+#emailErr {
+    display: none;
+    font-size: 12px;
+    color: red;
+}
+td:nth-child(2) {
+    margin-bottom: 10px;
+    padding-top: 10px;
+    padding-left: 30px;
+}

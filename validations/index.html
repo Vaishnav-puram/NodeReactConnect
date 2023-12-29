@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    .formfield {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    #star {
+        color: red;
+        font-size: 10px;
+    }
+
+    #fnameErr,
+    #lnameErr,
+    #ageErr,
+    #emailErr {
+        display: none;
+        font-size: 12px;
+        color: red;
+    }
+    td:nth-child(2) {
+        margin-bottom: 10px;
+        padding-top: 10px;
+        padding-left: 30px;
+    }
+</style>
+
+<body>
+    <div class="formfield">
+        <fieldset style="width: 120px;">
+            <legend>Personal Info</legend>
+            <form>
+                <table class="tble">
+                    <tr>
+                        <td>
+                            <label for="fname">Firstname:<sup id="star">*</sup></label>
+                        </td>
+                        <td>
+                            <input type="text" id="fname" name="fname" placeholder="enter first name" autofocus><br>
+                            <span id="fnameErr">First Name required *</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="lname">Lastname:<sup id="star">*</sup></label>
+                        </td>
+                        <td>
+                            <input type="text" id="lname" name="lname" placeholder="enter last name">
+                            <span id="lnameErr">Last Name required *</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="age">Age:<sup id="star">*</sup></label>
+                        </td>
+                        <td>
+                            <input type="number" id="age" name="age" placeholder="enter age" min="18" max="100">
+                            <span id="ageErr">Age required *</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="email">Email:<sup id="star">*</sup></label>
+                        </td>
+                        <td>
+                            <input type="email" id="email" name="email" placeholder="enter email name">
+                            <span id="emailErr">Email required *</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="pass">Password:<sup id="star">*</sup></label>
+                        </td>
+                        <td>
+                            <input type="password" id="pass" name="pass" placeholder="enter password"
+                                pattern="^[a-z].*">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>DateofBirth:<sup id="star">*</sup></td>
+                        <td>
+                            <input type="date" id="date" value="date" min="1990-11-01">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Gender:<sup id="star">*</sup></td>
+                        <td>
+                            <input type="radio" id="male" name="gender" value="male">
+                            <label>Male</label>
+                            <input type="radio" id="female" name="gender" value="female">
+                            <label>Female</label>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>Mobile:<sup id="star">*</sup></td>
+                        <td>
+                            <input type="text" id="phone" placeholder="enter mobile no" min="10" max="10">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Address:<sup id="star">*</sup>
+                        </td>
+                        <td>
+                            <textarea name="address" id="address" cols="30" rows="10"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <input type="button" value="Submit" onclick="validate()">
+                            <input type="reset" value="Clear">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <a href="./ResetPass.html">forget password</a>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </fieldset>
+    </div>
+    <script src="index.js"></script>
+</body>
+
+</html>
