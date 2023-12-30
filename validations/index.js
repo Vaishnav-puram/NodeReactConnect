@@ -1,4 +1,6 @@
-function validate(){
+function validate(event){
+    console.log(event);
+    event.preventDefault();
     var fval=document.getElementById("fname").value;
     if(fval ===""){
         document.getElementById("fnameErr").style.display="block";
