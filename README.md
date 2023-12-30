@@ -2,7 +2,7 @@ REACT FRONTEND
 > npm create vite@latest \
 > npm install \
 > npm install axios \
-> npm intall react-router-dom
+> npm install react-router-dom
 
 > start react app run : npm run dev
 ------------------------------------------------------
