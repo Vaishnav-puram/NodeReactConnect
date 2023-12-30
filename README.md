@@ -13,15 +13,10 @@ create server folder
 	> npm install express \
 	> npm install mysql \
 	> npm install cors \
-	> npm install nodemon  \
-	
-	
-  > npm install express mysql cors nodemon \
-	
-  > in package.json under scripts add "start":"nodemon server.js" \
-	
-  >in mysql run the commands 
-		> alter user 'root'@'localhost' IDENTIFIED WITH mysql_native_password by '<password>';
-		> flush privileges;
-
-  > start server run : npm start
+	> npm install nodemon \
+	> npm install express mysql cors nodemon \
+	> in package.json under scripts add "start":"nodemon server.js" \
+	>in mysql run the commands \
+		> alter user 'root'@'localhost' IDENTIFIED WITH mysql_native_password by '<password>'; \
+		> flush privileges; \
+  	> start server run : npm start
