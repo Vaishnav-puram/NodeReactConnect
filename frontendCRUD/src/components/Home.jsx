@@ -47,7 +47,7 @@ function Home() {
                             <td>{emp.sal}</td>
                             <td>{emp.mob}</td>
                             <td>{emp.address}</td>
-                            <td><button>Update</button></td>
+                            <td><NavLink to={`/edit/${emp.id}`}><button>Update</button></NavLink></td>
                             <td><button>Delete</button></td>
                         </tr>
                     ))}

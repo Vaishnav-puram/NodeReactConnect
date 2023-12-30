@@ -1,11 +1,10 @@
-import { useEffect, useState } from "react";
-import { addEmployee } from "./RESTService";
-import {useNavigate} from 'react-router-dom';
-import "./AddEmployee.css"
-function AddEmployee() {
-    const navigate = useNavigate();
+import { useState,useEffect } from "react";
+import { useParams ,useNavigate} from "react-router-dom";
+import { updateEmp } from "./RESTService";
+function Edit(){
+    const navigate=useNavigate();
+    const {id}=useParams();
     let [empData, setEmpData] = useState({
-        id:"",
         firstName: "",
         lastName: "",
         age: "",
@@ -25,18 +24,18 @@ function AddEmployee() {
     }
     const handleSubmit=(e)=>{
         e.preventDefault();
-        addEmployee(empData)
+        updateEmp(id,empData)
         .then((res)=>{
-            console.log(res.data);
-            navigate('/');
+            console.log(res);
+        navigate('/')
         })
         .catch((error)=>{
-            console.log(error.data);
+            console.log(error);
         })
     }
-    return (
+    return(
         <>
-            <div className="formfield">
+             <div className="formfield">
                 <fieldset style={{ width: '120px' }}>
                     <legend>Personal Info</legend>
                     <form onSubmit={handleSubmit}>
@@ -46,7 +45,7 @@ function AddEmployee() {
                                     <label>EmployeeID:<sup id="star">*</sup></label>
                                 </td>
                                 <td>
-                                    <input type="text" id="id" name="id" placeholder="enter ID" autoFocus value={empData.id} onChange={(e) => handleChange(e, 'id')} /><br />
+                                    <input type="text" id="id" name="id" placeholder="enter ID" autoFocus value={id} disabled="true"/><br />
                                     <span id="fnameErr">ID required *</span>
                                 </td>
                             </tr>
@@ -141,12 +140,6 @@ function AddEmployee() {
                                     <input type="reset" value={"Reset"} />
                                 </td>
                             </tr>
-                            <tr>
-                                <td></td>
-                                <td>
-                                    <a href="./ResetPass.html">forget password</a>
-                                </td>
-                            </tr>
                         </table>
                     </form>
                 </fieldset>
@@ -155,4 +148,5 @@ function AddEmployee() {
         </>
     )
 }
-export default AddEmployee;
+
+export default Edit;
