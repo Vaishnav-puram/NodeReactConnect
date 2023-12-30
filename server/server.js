@@ -72,6 +72,20 @@ app.put('/edit/:id',(req,res)=>{
     })
 })
 
+app.delete('/deleteEmp/:id',(req,res)=>{
+    const sql="delete from employee where id=?";
+    const id=req.params.id;
+    db.query(sql,[id],(error,result)=>{
+        if(error){
+            console.log(error);
+            return res.json({
+                "message":"unable to delete the record!"
+            })
+        }else{
+            return res.json(result);
+        }
+    })
+})
 app.listen(9090,()=>{
     console.log("server started listening at port : 9090")
 })

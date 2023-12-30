@@ -1,8 +1,8 @@
-import { NavLink } from "react-router-dom";
-// import { axiosService } from "../Helper";
+import { NavLink,useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { getAll } from "./RESTService";
+import { getAll,deleteEmp } from "./RESTService";
 function Home() {
+    const navigate=useNavigate();
     let [employees, setEmployees] = useState([]);
     useEffect(() => {
         getAll()
@@ -13,7 +13,19 @@ function Home() {
             .catch((error) => {
                 console.log(error);
             })
-    }, [])
+    }, [employees])
+    const handleDelete=(e,id)=>{
+        e.preventDefault();
+        console.log("current id to be deleted ==>",id)
+        deleteEmp(id)
+        .then((res)=>{
+            console.log(res.data);
+            navigate("/")
+        })
+        .catch((error)=>{
+            console.log(error)
+        })
+    }
     return (
         <>
             <div style={{display:'flex',justifyContent:'center',alignContent:'center'}}>
@@ -48,7 +60,7 @@ function Home() {
                             <td>{emp.mob}</td>
                             <td>{emp.address}</td>
                             <td><NavLink to={`/edit/${emp.id}`}><button>Update</button></NavLink></td>
-                            <td><button>Delete</button></td>
+                            <td><button onClick={(e)=>handleDelete(e,`${emp.id}`)}>Delete</button></td>
                         </tr>
                     ))}
                 </table>

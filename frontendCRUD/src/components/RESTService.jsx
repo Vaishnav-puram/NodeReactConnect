@@ -9,3 +9,6 @@ export const addEmployee=(empData)=>{
 export const updateEmp=(id,empData)=>{
     return axiosService.put(`/edit/${id}`,empData);
 }
+export const deleteEmp=(id)=>{
+    return axiosService.delete(`/deleteEmp/${id}`);
+}
