@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Result Page :</h3>
+    <div>
+        <fieldset>
+            <legend>Data :</legend>
+            <table>
+                <tr>
+                    <td>FirstName :</td>
+                    <td id="fname"></td>
+                </tr>
+                <tr>
+                    <td>LastName :</td>
+                    <td id="lname"></td>
+                </tr>
+                <tr>
+                    <td>Age :</td>
+                    <td id="age"></td>
+                </tr>
+                <tr>
+                    <td>Mobile :</td>
+                    <td id="mob"></td>
+                </tr>
+                <tr>
+                    <td>Email :</td>
+                    <td id="email"></td>
+                </tr>
+                <tr>
+                    <td>Password :</td>
+                    <td id="pass"></td>
+                </tr>
+                <tr>
+                    <td>Gender :</td>
+                    <td id="gender"></td>
+                </tr>
+                <tr>
+                    <td>DOB :</td>
+                    <td id="dob"></td>
+                </tr>
+                <tr>
+                    <td>Address :</td>
+                    <td id="address"></td>
+                </tr>
+                <tr>
+                    <td>Hobbies :</td>
+                    <td id="hob"></td>
+                </tr>
+                <tr>
+                    <td>Degree :</td>
+                    <td id="deg"></td>
+                </tr>
+            </table>
+        </fieldset>
+        <button type="button" onclick="clearLocal()">Clear</button>
+    </div>
+    <script>
+        document.getElementById("fname").innerHTML=localStorage.getItem('fname');
+        document.getElementById("lname").innerHTML=localStorage.getItem('lname');
+        document.getElementById("age").innerHTML=localStorage.getItem('age');
+        document.getElementById("mob").innerHTML=localStorage.getItem('phone');
+        document.getElementById("email").innerHTML=localStorage.getItem('email');
+        document.getElementById("pass").innerHTML=localStorage.getItem('pass');
+        document.getElementById("dob").innerHTML=localStorage.getItem('dob');
+        document.getElementById("gender").innerHTML=localStorage.getItem('gender');
+        document.getElementById("address").innerHTML=localStorage.getItem('address');
+        var hobbies=localStorage.getItem('hobbies');
+        // console.log(hobbies);
+        for(var i=0;i<hobbies.length;i++){
+            document.getElementById('hob').innerHTML+=hobbies[i];
+        }
+        document.getElementById('deg').innerHTML=localStorage.getItem('deg');
+        function clearLocal(){
+            console.log("inside clear")
+            window.location.href="index.html";
+            localStorage.clear();
+        }
+    </script>
+</body>
+</html>
