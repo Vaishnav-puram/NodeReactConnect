@@ -2,6 +2,9 @@ import {axiosService} from "../Helper";
 export const getAll=()=>{
     return axiosService.get('/');
 }
+export const getById=(id)=>{
+    return axiosService.get(`/emp/${id}`);
+}
 export const addEmployee=(empData)=>{
     return axiosService.post('/addEmp',empData);
 }
