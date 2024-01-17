@@ -16,14 +16,13 @@ const db=mysql.createConnection({
 
 app.get('/',(req,res)=>{
     const sql="SELECT * FROM employee";
-    console.log("Executing SQL query: " + sql);
     db.query(sql,(error,result)=>{
         if(error){
             return res.json({
                 "message":"unable to fetch the data"+error
             })
         }else{
-            return res.json(result);
+            return res.status(200).json(result);
         }
     })
 })
@@ -68,6 +67,22 @@ app.put('/edit/:id',(req,res)=>{
             })
         }else{
             return res.json(result);
+        }
+    })
+})
+
+app.get('/emp/:id',(req,res)=>{
+    const sql="select * from employee where id=?";
+    console.log(sql);
+    const id=req.params.id;
+    db.query(sql,[id],(error,result)=>{
+        if(error){
+            console.log(error);
+            return res.status(404).json({
+                "message":`unable to find the employee with id : ${id}`
+            })
+        }else{
+            return res.status(200).json(result[0]);
         }
     })
 })
