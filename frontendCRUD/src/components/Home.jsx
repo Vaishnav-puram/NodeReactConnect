@@ -13,7 +13,7 @@ function Home() {
             .catch((error) => {
                 console.log(error);
             })
-    }, [employees])
+    }, [])
     const handleDelete=(e,id)=>{
         e.preventDefault();
         console.log("current id to be deleted ==>",id)
