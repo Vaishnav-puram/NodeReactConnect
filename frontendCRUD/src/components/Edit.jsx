@@ -1,9 +1,10 @@
-import { useState,useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useParams ,useNavigate} from "react-router-dom";
-import { updateEmp } from "./RESTService";
+import { updateEmp , getById } from "./RESTService";
 function Edit(){
     const navigate=useNavigate();
     const {id}=useParams();
+    console.log("id-->",id)
     let [empData, setEmpData] = useState({
         firstName: "",
         lastName: "",
@@ -16,9 +17,14 @@ function Edit(){
         address: "",
         sal: ""
     })
-    useEffect(() => {
-        console.log(empData);
-    }, [empData])
+    useEffect(()=>{
+        getById(id)
+        .then((res) => {
+            console.log("Response data:", res.data);
+            setEmpData({...res.data})
+        })
+        .catch((err) => console.log("Error fetching data:", err));
+    },[])
     const handleChange = (event, property) => {
         setEmpData({ ...empData, [property]: event.target.value });
     }
